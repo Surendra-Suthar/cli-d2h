@@ -12,24 +12,16 @@ class Tariff {
         "Sports": ["SporTV", "ESPN", "SonyTEN"],
     };
 
-    // channelOpt = {
-    //     "1": ["Zee", "Zee1", "Zee2"],
-    //     "2": ["Unacademy", "Study IQ", "LESICS"],
-    //     "3": ["9X", "ETV", "Zee24"],
-    //     "4": ["SporTV", "ESPN", "SonyTEN"],
-    // };
-
-    // channelCategory1 = {
-    //     "a": ["Entertainment", ["Zee", "Zee1", "Zee2"]],
-    //     "b": ["Educational", ["Unacademy", "Study IQ", "LESICS"]],
-    //     "c": ["Regional", ["9X", "ETV", "Zee24"]],
-    //     "d": ["Sports", ["SporTV", "ESPN", "SonyTEN"]],
-    // };
-
     constructor() {
         this.initChannels();
     }
 
+     /**
+     * @tariff - initChannels()
+     * @description - This method initializes the basic 3 channels, this method is called in the class constructor and resetApplication() method.
+     * @param - 
+     * @returns - 
+     */
     initChannels() {
         let channels = conf.get('channels');
         if (!channels) {
@@ -38,16 +30,34 @@ class Tariff {
         }
     }
 
+     /**
+     * @tariff - resetApplication()
+     * @description - This method resets the application, clears all stored variables and calls the initialize initChannels() method.
+     * @param -
+     * @returns -
+     */
     resetApplication(){
         conf.clear();
         conf.set('balance', 0);
         this.initChannels();
     }
 
+    /**
+     * @tariff - getPackage()
+     * @description - This method is used to view the channel list in the package.
+     * @param - 
+     * @returns - {array} channels.
+     */
     getPackage() {
         return conf.get('channels');
     }
 
+    /**
+     * @tariff - showCategory()
+     * @description - Categories of channels are obtained by this method.
+     * @param -
+     * @returns - {String} list of channel categories like 1. Entertainment.
+     */
     showCategory(){
       const categories = Object.keys(this.channelCategory);
       let cat ="";
@@ -57,19 +67,29 @@ class Tariff {
         return cat;
     }
 
-    /*
-    Param - categoryNameIndex pass number index of category like 1,2
-    */
+    /**
+     * @tariff - showChannelsByCategories()
+     * @description - This method returns the list of channels on the basis of category.
+     * @param - {Integer} categoryNameIndex
+     * @returns - {Array} channels.
+     */
     showChannelsByCategories(categoryNameIndex){
         const categories = Object.keys(this.channelCategory);
         const channels = categories[categoryNameIndex -1]
+
+
+        console.log("showChannelsByCategories----");
+        console.log(this.channelCategory[channels])
+
         return this.channelCategory[channels];
     }
 
-
-    /*
-    Param - channelOption pass number index of channel like 1,2
-    */
+    /**
+     * @tariff - showChannelOptions()
+     * @description - This method selects the channel based on the channel index.
+     * @param - {Integer} channelOptionIndex
+     * @returns - {object} channel and channel number.
+     */
     showChannelOptions =(channelOptionIndex)=>{
         console.log("Please choose channel:");
         let channels = this.showChannelsByCategories(channelOptionIndex);
@@ -83,9 +103,12 @@ class Tariff {
          return {};
    }
 
-     /*
-        Param - channelName pass string channel name like Zee24
-    */
+    /**
+     * @tariff - addChannel()
+     * @description - This method allows you to add a channel to the package.
+     * @param - {string} channelName
+     * @returns - {string} message.
+     */
     addChannel(channelName) {
 
         let channels = conf.get('channels');
@@ -110,6 +133,12 @@ class Tariff {
         }
     }
 
+    /**
+     * @tariff - removeChannel()
+     * @description - This method is used to delete the channel.
+     * @param - {string} name
+     * @returns - {string} message.
+     */
     removeChannel(name){
         let channels = conf.get('channels');
         channels.splice(channels.indexOf(name),1);

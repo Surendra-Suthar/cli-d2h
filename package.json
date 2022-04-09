@@ -1,8 +1,16 @@
 {
   "name": "cli-d2h",
-  "version": "1.0.0",
-  "author": "Surendra Suthar <suthars.surendra@gmail.com>",
+  "version": "1.0.1",
+  "author": {
+    "name": "Surendra Suthar",
+    "email": "suthars.surendra@gmail.com"
+  },
   "main": "./index.js",
+  "preferGlobal": true,
+  "files": [
+    "d2h/*",
+    "index.js"
+  ],
   "bin": {
     "d2h": "index.js"
   },

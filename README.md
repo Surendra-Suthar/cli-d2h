@@ -2,7 +2,7 @@
 # NodeJS Command Line Application
 
 ### Overview: 
-Create a D2H like command line application using NodeJS which will be a  standalone application with basic functionalities like viewing your balance, add  balance, view the tariff packages, add the channels to tariff packages if user has  sufficient balance etc. 
+Create a command line application using NodeJS which will be a  standalone application with basic functionalities like viewing your balance, add  balance, view the tariff packages, add the channels to tariff packages if user has  sufficient balance etc. 
 
 Show the output below to the user with welcome message when  application get initialized: 
 Welcome. 
@@ -26,33 +26,8 @@ Note: If the user has sufficient balance, then add that channel to  user’s tar
 
 5. To remove the channel from your tariff plan (Note: ask user for  channel name, remove it from user’s tariff if it exists, else show error  message ‘You don’t have <channel_name> in your tariff plan’
 
-### Note
-
-• You don’t need to use a database for managing data. Cache will be  sufficient. 
-
-• You are required to write unit tests to cover all the major scenarios. • Your application should run independently on any system without any  difficulties. 
-
-• Create a private github repository, create a PR and share the link. 
-
-
-### Judgement Criteria: 
-
-• You will be judged upon, 
-
-o Your understanding of the requirements. 
-
-o How do you use design patterns? 
-
-o How do you use OOPS concepts? 
-
-o Code quality and reusability  
-
-o Unit test coverage
-
-
-To local run this project : 
+### Run this application
 
 ```bash
-  npm i
-  npm link
+  npx cli-d2h
 ```

@@ -53,6 +53,8 @@ const initialize =()=>{
                     break;
 
             default :
+            console.log(chalk.red.bold('Please enter valid input!'));
+            initialize();
 
         }
 

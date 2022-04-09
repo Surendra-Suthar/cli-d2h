@@ -4,9 +4,6 @@ const conf = new (require("conf"))();
 const Account = require("./d2h/account/account");
 let accounts = new Account();
 
-const Tariff = require("./d2h/tariff/tariff");
-let tariffs = new Tariff();
-
 const readline = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -37,7 +34,7 @@ const initialize = () => {
           break;
 
         case "3":
-          const pkg = tariffs.getPackage();
+          const pkg = accounts.getPackage();
           console.log(`Your basic tariff package channels :`);
           console.log(pkg.join("\n"));
           break;
@@ -51,7 +48,7 @@ const initialize = () => {
           break;
 
         case "6":
-          tariffs.resetApplication();
+          accounts.resetApplication();
           break;
 
         default:
@@ -64,7 +61,7 @@ const initialize = () => {
 
 const addOn = () => {
   console.log("Choose any one categories of channel:");
-  let cat = tariffs.showCategory();
+  let cat = accounts.showCategory();
   readline.question(`${cat}`, (catq) => {
     showAddonOpt(catq);
     initialize();
@@ -72,11 +69,11 @@ const addOn = () => {
 };
 
 const removeChannel = () => {
-  let channel = tariffs.getPackage();
+  let channel = accounts.getPackage();
   console.log(channel);
   readline.question(`Enter channel to remove :`, (chRemove) => {
     if (channel.indexOf(chRemove) >= 0) {
-      const removed = tariffs.removeChannel(chRemove);
+      const removed = accounts.removeChannel(chRemove);
       console.log(removed);
     } else {
       console.log(chalk.red.bold(`${chRemove} channel not found!`));
@@ -86,11 +83,11 @@ const removeChannel = () => {
 };
 
 const showAddonOpt = (chOpt) => {
-  let { chNo, channels } = tariffs.showChannelOptions(chOpt);
+  let { chNo, channels } = accounts.showChannelOptions(chOpt);
 
   if (channels) {
     readline.question(`${chNo}`, (ch1) => {
-      const add = tariffs.addChannel(channels[ch1 - 1]);
+      const add = accounts.addChannel(channels[ch1 - 1]);
       if (add === "exists") {
         console.log(
           chalk.red.bold(

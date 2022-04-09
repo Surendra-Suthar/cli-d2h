@@ -1,8 +1,10 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
+const Tariff = require("../tariff/tariff");
 
-class Account {
+class Account extends Tariff{
   constructor() {
+    super();
     conf.set("balance", 0);
   }
 

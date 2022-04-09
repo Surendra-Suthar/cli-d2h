@@ -20,13 +20,12 @@ const initialize = () => {
     3. To view your basic tariff package. \n 
     4. To add addon channel to your tariff package. \n 
     5. To remove the channel from your tariff plan. \n  \n 
-    6. Reset Application. \n >`,
+    6. Reset Application. \n\n >`,
     (name) => {
       switch (name) {
         case "1":
           const balance = accounts.getBalance();
           console.log(`Your balance is : ${balance}`);
-          initialize();
           break;
 
         case "2":
@@ -41,28 +40,24 @@ const initialize = () => {
           const pkg = tariffs.getPackage();
           console.log(`Your basic tariff package channels :`);
           console.log(pkg.join("\n"));
-          initialize();
           break;
 
         case "4":
           addOn();
-          initialize();
           break;
 
         case "5":
           removeChannel();
-          initialize();
           break;
 
         case "6":
           tariffs.resetApplication();
-          initialize();
           break;
 
         default:
           console.log(chalk.red.bold("Please enter valid input!"));
-          initialize();
       }
+      initialize();
     }
   );
 };

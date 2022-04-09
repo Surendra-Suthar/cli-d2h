@@ -1,6 +1,6 @@
 {
-  "name": "cli-d2h",
-  "version": "1.0.1",
+  "name": "d2h-cli",
+  "version": "1.0.2",
   "author": {
     "name": "Surendra Suthar",
     "email": "suthars.surendra@gmail.com"

@@ -29,5 +29,5 @@ Note: If the user has sufficient balance, then add that channel to  user’s tar
 ### Run this application
 
 ```bash
-  npx cli-d2h
+  npx d2h-cli
 ```

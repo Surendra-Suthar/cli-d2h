@@ -27,11 +27,21 @@ class Tariff {
     // };
 
     constructor() {
-        let channels = conf.get('channels')
+        this.initChannels();
+    }
+
+    initChannels() {
+        let channels = conf.get('channels');
         if (!channels) {
             channels = ["ZeeTV", "SubTV", "SonyTV"]
             conf.set('channels', channels);
         }
+    }
+
+    resetApplication(){
+        conf.clear();
+        conf.set('balance', 0);
+        this.initChannels();
     }
 
     getPackage() {
@@ -47,47 +57,56 @@ class Tariff {
         return cat;
     }
 
-    showChannelsByCategories(categoryName){
+    /*
+    Param - categoryNameIndex pass number index of category like 1,2
+    */
+    showChannelsByCategories(categoryNameIndex){
         const categories = Object.keys(this.channelCategory);
-        const channels = categories[categoryName -1]
+        const channels = categories[categoryNameIndex -1]
         return this.channelCategory[channels];
     }
 
 
-    showChannelOptions =(catq)=>{
+    /*
+    Param - channelOption pass number index of channel like 1,2
+    */
+    showChannelOptions =(channelOptionIndex)=>{
         console.log("Please choose channel:");
-        let channels = this.showChannelsByCategories(catq);
-        let chNo ="";
-        for (let i in channels) {
-            chNo += chalk.greenBright(`${(parseInt(i)+1)}. ${channels[i]} \n`);
-        }
-        return {chNo,channels};
-    }
+        let channels = this.showChannelsByCategories(channelOptionIndex);
+            if(channels){
+                let chNo ="";
+                for (let i in channels) {
+                    chNo += chalk.greenBright(`${(parseInt(i)+1)}. ${channels[i]} \n`);
+                }
+            return {chNo,channels};
+         }
+         return {};
+   }
 
-    addChannel(cat, name) {
+     /*
+        Param - channelName pass string channel name like Zee24
+    */
+    addChannel(channelName) {
+
         let channels = conf.get('channels');
 
-        if (name) {
-
-            if(channels.includes(name)){
-                console.log(
-                    chalk.red.bold('Channel already exists in your tariff, please select other channel!')
-                )
-                 return "exists";
+        if (channelName) {
+            if(channels.includes(channelName)){
+                return "exists";
             }else {
                 let balance = conf.get('balance');
                 if (balance < this.channelPrice) {
-                   return chalk.red.bold('You don’t have sufficient balance to add this channel in your tariff plan!');
+                return chalk.red.bold('You don’t have sufficient balance to add this channel in your tariff plan!');
                 } else {
-                    channels.push(name);
+                    channels.push(channelName);
                     conf.set('channels', channels);
                     conf.set('balance', balance - this.channelPrice);
-                   return chalk.greenBright(`${channels}`);
+                return chalk.greenBright(`${channels}`);
                 }
             }
 
         } else {
-           return chalk.red.bold('Channel name is require, please enter channel name!');
+        return chalk.red.bold('Channel name is require, please enter channel name!');
         }
     }
 
@@ -95,9 +114,8 @@ class Tariff {
         let channels = conf.get('channels');
         channels.splice(channels.indexOf(name),1);
         conf.set('channels', channels);
-        console.log(chalk.red.bold(`${name} channel removed!`));
+        return chalk.red.bold(`${name} channel removed!`);
     }
-1
 }
 
 module.exports = Tariff;

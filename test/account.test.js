@@ -4,8 +4,12 @@ let accountObj = new Account;
 
 describe('Account', function () {
   describe('#getBalance', function () {
-        it('return value', function () {
-            expect(accountObj.getBalance()).to.be.contain('');
+        it('balance greater than zero', function () {
+            expect(accountObj.getBalance()).to.be.greaterThan(0);
+        });
+
+        it('balance is zero', function () {
+            expect(accountObj.getBalance()).to.be.lessThanOrEqual(0);
         });
   });
 
@@ -28,7 +32,7 @@ describe('Account', function () {
             });
 
             it('valid amount', function () {
-                expect(accountObj.addCash(10)).to.be.contains('10 amount added successfully, your balance is')
+                expect(accountObj.addCash(50)).to.be.contains('50 amount added successfully, your balance is')
             });
 
         });

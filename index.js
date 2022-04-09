@@ -48,7 +48,7 @@ const initialize =()=>{
                 break;
 
                 case "6":
-                    conf.clear();
+                   tariffs.resetApplication();
                     initialize();
                     break;
 
@@ -73,7 +73,8 @@ const removeChannel =()=>{
     console.log(channel);
     readline.question(`Enter channel to remove :`, chRemove => {
         if (channel.indexOf(chRemove)>=0){
-            tariffs.removeChannel(chRemove);
+            const removed = tariffs.removeChannel(chRemove);
+            console.log(removed);
         }else {
             console.log(chalk.red.bold(`${chRemove} channel not found!`));
         }
@@ -86,8 +87,9 @@ const showAddonOpt =(chOpt)=>{
 
     if(channels) {
         readline.question(`${chNo}`, ch1 => {
-            const add = tariffs.addChannel(chOpt, channels[ch1 - 1]);
+            const add = tariffs.addChannel(channels[ch1 - 1]);
             if (add === "exists") {
+                console.log(chalk.red.bold('Channel already exists in your tariff, please select other channel!'));
                 showAddonOpt(chOpt);
             } else {
                 console.log(add);

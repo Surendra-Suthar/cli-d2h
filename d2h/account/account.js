@@ -3,25 +3,17 @@ const chalk = require('chalk')
 
 class Account {
 
+    constructor() {
+        conf.set('balance', 0);
+    }
+
     getBalance() {
-        let balance = conf.get('balance');
-
-        if (!balance) {
-            balance = 0
-        }
-
-        if(balance>0)
-            return chalk.greenBright(`${balance}`);
-
-        return chalk.redBright(`${balance}`);
+        return conf.get('balance');
     }
 
     addCash(cash) {
+        
         let amount = conf.get('balance');
-
-        if (!amount) {
-            amount = 0
-        }
 
         if (cash > 0) {
             amount = (amount + parseInt(cash));

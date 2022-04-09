@@ -1,17 +1,17 @@
 {
-  "name": "cli-app",
+  "name": "cli-d2h",
   "version": "1.0.0",
   "author": "Surendra Suthar <suthars.surendra@gmail.com>",
   "main": "./index.js",
   "bin": {
-    "d2h": "./index.js"
+    "d2h": "index.js"
   },
   "scripts": {
     "test": "nyc mocha"
   },
   "license": "ISC",
   "keywords": [],
-  "description": "",
+  "description": "It's command line application using NodeJS which will be a standalone application with basic functionalities like viewing your balance, add  balance, view the tariff packages, add the channels to tariff packages if user has sufficient balance etc.",
   "dependencies": {
     "chalk": "2.4",
     "conf": "^10.1.2"
@@ -21,5 +21,16 @@
     "chai-json-schema": "^1.5.1",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Surendra-Suthar/cli-d2h.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Surendra-Suthar/cli-d2h/issues"
+  },
+  "homepage": "https://github.com/Surendra-Suthar/cli-d2h#readme"
 }

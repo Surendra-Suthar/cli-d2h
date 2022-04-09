@@ -76,11 +76,6 @@ class Tariff {
     showChannelsByCategories(categoryNameIndex){
         const categories = Object.keys(this.channelCategory);
         const channels = categories[categoryNameIndex -1]
-
-
-        console.log("showChannelsByCategories----");
-        console.log(this.channelCategory[channels])
-
         return this.channelCategory[channels];
     }
 

@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 const chalk = require("chalk");
-const conf = new (require("conf"))();
 const Account = require("./d2h/account/account");
 let accounts = new Account();
 
@@ -68,20 +67,6 @@ const addOn = () => {
   });
 };
 
-const removeChannel = () => {
-  let channel = accounts.getPackage();
-  console.log(channel);
-  readline.question(`Enter channel to remove :`, (chRemove) => {
-    if (channel.indexOf(chRemove) >= 0) {
-      const removed = accounts.removeChannel(chRemove);
-      console.log(removed);
-    } else {
-      console.log(chalk.red.bold(`${chRemove} channel not found!`));
-    }
-    initialize();
-  });
-};
-
 const showAddonOpt = (chOpt) => {
   let { chNo, channels } = accounts.showChannelOptions(chOpt);
 
@@ -103,6 +88,20 @@ const showAddonOpt = (chOpt) => {
   } else {
     console.log(chalk.red.bold(`Please choose valid category!`));
   }
+};
+
+const removeChannel = () => {
+  let channel = accounts.getPackage();
+  console.log(channel);
+  readline.question(`Enter channel to remove :`, (chRemove) => {
+    if (channel.indexOf(chRemove) >= 0) {
+      const removed = accounts.removeChannel(chRemove);
+      console.log(removed);
+    } else {
+      console.log(chalk.red.bold(`${chRemove} channel not found!`));
+    }
+    initialize();
+  });
 };
 
 initialize();

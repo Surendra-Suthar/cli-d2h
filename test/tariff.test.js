@@ -46,6 +46,10 @@ describe("Tariff", function () {
       expect(tariffObj.addChannel("SonyTV")).to.be.contains("exists");
     });
 
+    it("check channel empty value", function () {
+      expect(tariffObj.addChannel()).to.be.contains("Channel name is require");
+    });
+
     it("check channel added", function () {
       expect(tariffObj.addChannel("Unacademy")).to.be.contains(",ESPN");
     });

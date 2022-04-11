@@ -119,7 +119,7 @@ class Tariff {
                     channels.push(channelName);
                     conf.set('channels', channels);
                     conf.set('balance', balance - this.channelPrice);
-                return chalk.greenBright(`${channels}`);
+                return chalk.greenBright(`${channelName} channel successful added in your package, these channels are available in your package:\n ${channels}`);
                 }
             }
 

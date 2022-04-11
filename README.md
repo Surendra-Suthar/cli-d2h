@@ -26,7 +26,25 @@ Note: If the user has sufficient balance, then add that channel to  user’s tar
 
 5. To remove the channel from your tariff plan (Note: ask user for  channel name, remove it from user’s tariff if it exists, else show error  message ‘You don’t have <channel_name> in your tariff plan’
 
-### Run this application
+
+### Run this application on local system
+
+```bash
+  npm i
+```
+
+Package linking: (Go to project directory and run below command)
+```bash
+  npm link
+```
+
+Type in command prompt 
+
+```bash
+  d2h
+```
+
+### You can also run this application using npx but (not published on npm)
 
 ```bash
   npx d2h-cli

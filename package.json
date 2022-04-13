@@ -1,6 +1,6 @@
 {
   "name": "d2h-s",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Surendra Suthar",
     "email": "suthars.surendra@gmail.com"
@@ -18,7 +18,17 @@
     "test": "nyc mocha"
   },
   "license": "ISC",
-  "keywords": [],
+  "keywords": [
+    "CLI",
+    "NodeJS-Command-Line-Application",
+    "OOPS concepts",
+    "Unit test coverage",
+    "Command Line Application",
+    "NodeJS Command Line Application",
+    "TDD consideration",
+    "NYC Coverage",
+    "Class and Inheritance"
+  ],
   "description": "It's command line application using NodeJS which will be a standalone application with basic functionalities like viewing your balance, add  balance, view the tariff packages, add the channels to tariff packages if user has sufficient balance etc.",
   "dependencies": {
     "chalk": "2.4",

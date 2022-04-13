@@ -44,7 +44,7 @@ Type in command prompt
   d2h
 ```
 
-### You can also run this application using npx (Published on npm)
+### You can also run this application using npx (Published on npm):
 
 ```bash
   npx d2h-s

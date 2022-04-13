@@ -1,5 +1,5 @@
 {
-  "name": "d2h-s",
+  "name": "cli-d2h",
   "version": "1.0.2",
   "author": {
     "name": "Surendra Suthar",
@@ -27,7 +27,8 @@
     "NodeJS Command Line Application",
     "TDD consideration",
     "NYC Coverage",
-    "Class and Inheritance"
+    "Class and Inheritance",
+    "d2h"
   ],
   "description": "It's command line application using NodeJS which will be a standalone application with basic functionalities like viewing your balance, add  balance, view the tariff packages, add the channels to tariff packages if user has sufficient balance etc.",
   "dependencies": {
